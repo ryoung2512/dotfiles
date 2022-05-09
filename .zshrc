@@ -2,8 +2,10 @@ autoload -U compinit
 compinit
 
 [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
-if [ -e /Users/rhysyoung/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/rhysyoung/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
+if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]
+then
+    . "$HOME/.nix-profile/etc/profile.d/nix.sh"
+fi
 # Alias
 alias ls="ls -G"
 alias zs="nano ~/.zshrc"
