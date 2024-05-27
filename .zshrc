@@ -12,6 +12,7 @@ alias zs="nano ~/.zshrc"
 alias ga="git add ."
 alias gp="git push"
 alias gpl="git pull --prune"
+alias grebase="git checkout main && git pull -p && git checkout - && git rebase main"
 
 ### begin zinit
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
