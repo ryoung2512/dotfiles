@@ -8,7 +8,7 @@ then
 fi
 # Alias
 alias ls="ls -G"
-alias zs="nano ~/.zshrc"
+alias zs="code ~/.zshrc"
 alias ga="git add ."
 alias gp="git push"
 alias gpl="git pull --prune"
@@ -31,6 +31,7 @@ autoload -Uz _zinit
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
 zinit light Aloxaf/fzf-tab
+zinit light MichaelAquilina/zsh-you-should-use
 
 zinit wait lucid for \
     OMZ::lib/git.zsh \
