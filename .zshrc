@@ -30,6 +30,7 @@ autoload -Uz _zinit
 # Plugins
 zinit ice compile'(pure|async).zsh' pick'async.zsh' src'pure.zsh'
 zinit light sindresorhus/pure
+zinit light Aloxaf/fzf-tab
 
 zinit wait lucid for \
     OMZ::lib/git.zsh \
