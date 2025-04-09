@@ -6,13 +6,24 @@ if [ -e "$HOME/.nix-profile/etc/profile.d/nix.sh" ]
 then
     . "$HOME/.nix-profile/etc/profile.d/nix.sh"
 fi
+
+# Install eza using nix
+if ! command -v eza &> /dev/null; then
+    nix profile install nixpkgs#eza
+fi
+
 # Alias
-alias ls="ls -G"
+alias ls="eza --icons"
+alias ll="eza -l --icons"
+alias la="eza -la --icons"
+alias lt="eza --tree --icons"
+alias l="eza -l --icons"
 alias zs="code ~/.zshrc"
 alias ga="git add ."
 alias gp="git push"
 alias gpl="git pull --prune"
 alias grebase="git checkout main && git pull -p && git checkout - && git rebase main"
+alias gcaf="git commit --amend --no-edit && git push --force"
 
 ### begin zinit
 if [[ ! -f $HOME/.zinit/bin/zinit.zsh ]]; then
@@ -42,5 +53,6 @@ zinit wait lucid for \
 
 zstyle ':prompt:pure:prompt:success' color green
 
-[[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
 [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
+
+[[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
